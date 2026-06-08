@@ -1,0 +1,21 @@
+{
+  "name": "secrets-scanner",
+  "version": "0.1.0",
+  "description": "Scan files and directories for leaked secrets and code vulnerabilities",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "test": "ts-node src/test-scan.ts"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "glob": "^10.3.10",
+    "ignore": "^5.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}
