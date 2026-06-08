@@ -5,11 +5,11 @@ import { SuppressionInfo, isLineSuppressed } from '../utils/suppressionParser';
 
 export interface MultiLineRule extends ScanRule {
   // How many lines to include in each window
-  // Default is 1 (same as Phase 1 behavior)
+  // Default is 1 (single line)
   windowSize: number;
 }
 
-// Redact helper (duplicated from engine.ts for now — we'll consolidate in Phase 3)
+// Redact helper (mirrors the version in engine.ts)
 function redactMatch(match: string): string {
   if (match.length <= 8) return '****';
   return `${match.substring(0, 6)}...****`;

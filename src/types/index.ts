@@ -3,7 +3,6 @@
 export type Severity = 'critical' | 'high' | 'medium' | 'low' | 'info';
 export type FindingCategory = 'secret' | 'vulnerability' | 'hygiene';
 
-// NEW in Phase 2
 // How certain are we this is a real issue?
 // high   = very specific pattern, almost always correct (e.g. AKIA[0-9A-Z]{16})
 // medium = good signal but could be a false positive in some contexts
@@ -31,7 +30,7 @@ export interface Finding {
   suppressionReason?: string;   // NEW — what the developer wrote in the disable comment
 }
 
-// NEW in Phase 2
+
 // Passed to context-aware rules so they can inspect surroundings
 export interface RuleContext {
   // The line that matched

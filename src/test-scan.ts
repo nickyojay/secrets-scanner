@@ -29,7 +29,7 @@ function printFinding(finding: Finding, index: number): void {
 }
 
 async function main() {
-  console.log(`${BOLD}🔍 Secrets Scanner — Phase 1 Test${RESET}\n`);
+  console.log(`${BOLD}🔍 Secrets Scanner — Test Run${RESET}\n`);
 
   const result = await scan({
     targetPath: './test-fixtures',
