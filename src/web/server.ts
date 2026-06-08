@@ -146,7 +146,7 @@ app.get('/api/health', (_req, res) => {
 
 // ── Start server ──────────────────────────────────────────────────────────
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`\nSecrets Scanner dashboard running at http://localhost:${PORT}\n`);
 });
 
