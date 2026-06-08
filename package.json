@@ -4,21 +4,28 @@
   "description": "Scan files and directories for leaked secrets and code vulnerabilities",
   "main": "dist/index.js",
   "bin": {
-  "secrets-scan": "./dist/cli/index.js"
+    "secrets-scan": "./dist/cli/index.js"
   },
   "scripts": {
     "build": "tsc",
     "dev": "ts-node src/index.ts",
     "test": "ts-node src/test-scan.ts",
-    "cli": "ts-node src/cli/index.ts"
+    "cli": "ts-node src/cli/index.ts",
+    "web": "ts-node src/web/server.ts"
   },
   "dependencies": {
     "chalk": "^4.1.2",
+    "express": "^5.2.1",
     "glob": "^10.3.10",
-    "ignore": "^5.3.1"
+    "ignore": "^5.3.1",
+    "multer": "^2.1.1",
+    "unzipper": "^0.12.3"
   },
   "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/multer": "^2.1.0",
     "@types/node": "^20.11.0",
+    "@types/unzipper": "^0.10.11",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }
