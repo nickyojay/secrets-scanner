@@ -7,7 +7,8 @@
     "secrets-scan": "./dist/cli/index.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cp -r src/web/public dist/web/public",
+    "start": "node dist/web/server.js",
     "dev": "ts-node src/index.ts",
     "test": "ts-node src/test-scan.ts",
     "cli": "ts-node src/cli/index.ts",
@@ -26,6 +27,7 @@
     "@types/multer": "^2.1.0",
     "@types/node": "^20.11.0",
     "@types/unzipper": "^0.10.11",
+    "copyfiles": "^2.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }
