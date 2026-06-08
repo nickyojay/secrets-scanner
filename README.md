@@ -2,7 +2,7 @@
 
 A developer tool for scanning codebases for leaked secrets and security vulnerabilities. Built with Node.js and TypeScript.
 
-🔍 **[Live Dashboard](https://secrets-scanner-production-cb30.up.railway.app)** — upload a zip of any project and see findings in your browser.
+**[Live Dashboard](https://secrets-scanner-production-cb30.up.railway.app)** — upload a zip of any project and see findings in your browser.
 
 ---
 
