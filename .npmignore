@@ -1,0 +1,11 @@
+src/
+test-fixtures/
+test-fixtures.zip
+Procfile
+railway.json
+tsconfig.json
+*.tgz
+dist/test-scan.js
+dist/test-scan.js.map
+dist/test-scan.d.ts
+dist/test-scan.d.ts.map
