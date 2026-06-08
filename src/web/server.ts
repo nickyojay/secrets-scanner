@@ -9,7 +9,7 @@ import { scan } from '../scanner/engine';
 import { ScanConfig } from '../types';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = Number(process.env.PORT) || 3000;
 
 // ── Middleware ────────────────────────────────────────────────────────────
 
