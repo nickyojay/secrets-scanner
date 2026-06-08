@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secrets Scanner</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Secrets Scanner</h1>
+      <span class="subtitle">Scan your code for leaked secrets and vulnerabilities</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Upload card -->
+    <div class="upload-card">
+      <h2>Scan a project</h2>
+
+      <!-- Drop zone -->
+      <div class="upload-area" id="upload-area">
+        <div class="icon">📦</div>
+        <p>Drop your project zip here or click to browse</p>
+        <p class="hint">Accepts .zip files up to 50MB</p>
+        <input type="file" id="file-input" accept=".zip" />
+      </div>
+
+      <!-- Selected file indicator -->
+      <div class="selected-file" id="selected-file">
+        📄 <span id="selected-name"></span>
+      </div>
+
+      <!-- Scan filters -->
+      <div class="filters">
+        <div class="filter-group">
+          <label>Severity</label>
+          <select id="filter-severity">
+            <option value="">All severities</option>
+            <option value="critical">Critical only</option>
+            <option value="critical,high">Critical + High</option>
+            <option value="critical,high,medium">Critical + High + Medium</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Category</label>
+          <select id="filter-category">
+            <option value="">All categories</option>
+            <option value="secret">Secrets only</option>
+            <option value="vulnerability">Vulnerabilities only</option>
+            <option value="hygiene">Hygiene only</option>
+          </select>
+        </div>
+
+        <div class="filter-group" style="justify-content: flex-end; flex-direction: row; align-items: flex-end; gap: 8px;">
+          <input type="checkbox" id="filter-include-all" />
+          <label for="filter-include-all" style="text-transform:none;letter-spacing:0;font-size:13px;cursor:pointer">
+            Include high false-positive rules
+          </label>
+        </div>
+      </div>
+
+      <!-- Scan button -->
+      <button class="btn-scan" id="btn-scan" disabled>
+        Scan
+      </button>
+    </div>
+
+    <!-- Error box -->
+    <div class="error-box" id="error-box">
+      <strong>Error:</strong> <span id="error-msg"></span>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <p>Scanning your code...</p>
+    </div>
+
+    <!-- Summary chips -->
+    <div class="summary-bar" id="summary-bar"></div>
+
+    <!-- Findings table -->
+    <div class="findings-section" id="findings-section">
+      <div class="findings-header">
+        <h2>Findings <span id="findings-count" style="color:var(--text-muted);font-weight:400"></span></h2>
+        <input
+          type="text"
+          class="search-box"
+          id="search-box"
+          placeholder="Search by rule, file, or keyword..."
+        />
+      </div>
+
+      <table class="findings-table">
+        <thead>
+          <tr>
+            <th data-sort="severity" style="width:110px">Severity</th>
+            <th data-sort="rule">Rule</th>
+            <th data-sort="file">File</th>
+            <th style="width:120px">Category</th>
+            <th style="width:100px">Confidence</th>
+          </tr>
+        </thead>
+        <tbody id="findings-body"></tbody>
+      </table>
+
+      <div class="no-results" id="no-results">
+        No findings match your current filters.
+      </div>
+    </div>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
